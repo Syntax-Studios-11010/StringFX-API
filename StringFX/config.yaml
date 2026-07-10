@@ -1,0 +1,15 @@
+# StringFX Global Configuration
+server:
+  port: 8080
+  environment: "development"
+
+processors:
+  sanitize:
+    enabled: true
+    replacement_char: "*"
+  leet:
+    enabled: true
+  mock:
+    enabled: true
+  slugify:
+    enabled: true

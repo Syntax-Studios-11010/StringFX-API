@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  # 1. The High-Speed Go Gateway
+  gateway-go:
+    build:
+      context: ./gateway-go
+    ports:
+      - "8080:8080" # Opens port 8080 on your computer
+    depends_on:
+      - processor-python
+    restart: always
+
+  # 2. The Python Text Processing Engine
+  processor-python:
+    build:
+      context: ./processor-python
+    expose:
+      - "8001" # Kept private inside Docker, only accessible by Go
+    restart: always
